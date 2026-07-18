@@ -109,6 +109,38 @@ ol.caveats li,ul.plain li{margin:6px 0}
 @media(max-width:640px){.scoreline{float:none;display:block}.bars{max-width:none}.photos,.photos.two{grid-template-columns:1fr}.photos img{aspect-ratio:16/10}
 th.hm,td.hm{display:none}.tablewrap table{min-width:0}.tablewrap{overflow-x:visible}th,td{padding:8px 7px}}
 @media(min-width:680px){.wrap{padding:32px 22px 64px}h1{font-size:30px}h2{font-size:21px;margin:40px 0 14px}.lede{font-size:16px}}
+.cmpselects{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cmplab{display:block;font-size:12px;font-weight:600;color:var(--sub);margin-bottom:4px}
+.cmpsel{width:100%;font:inherit;font-size:13px;padding:7px 8px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+.cmpgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:2px}
+.cmpcol{min-width:0}
+.cmpphoto{background:#eef0f2;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:8px}
+.cmpphoto img{width:100%;aspect-ratio:3/2;object-fit:contain;display:block}
+.cmpphoto.none{aspect-ratio:3/2;display:flex;align-items:center;justify-content:center;color:#9a988f;font-size:12px;text-align:center;padding:10px}
+.cmpname{font-size:15.5px;font-weight:600;line-height:1.25}
+.cmpmeta{font-size:12px;color:var(--sub);margin-top:3px}
+.cmpmeta .mkt{margin-right:2px}
+.cmpscore{font-size:22px;font-weight:700;color:var(--accent);margin-top:8px;line-height:1}
+.cmpscore .cmpsclab{font-size:10.5px;font-weight:600;color:var(--sub);text-transform:uppercase;letter-spacing:.04em;margin-left:5px}
+.cmpscore.lose{color:#8a97a6}
+.cmplead{display:inline-block;background:#e9f1e9;color:#3f6b45;font-size:10.5px;font-weight:700;border-radius:999px;padding:1px 7px;margin-left:6px;vertical-align:middle}
+.cmphdr{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:12px;font-weight:600;color:var(--sub);margin-top:14px;border-top:1px solid var(--line);padding-top:11px}
+.cmphint{font-weight:400;font-size:11px;color:#9a988f}
+.cmpbars{margin:8px 0 4px}
+.cmprow{display:grid;grid-template-columns:26px 1fr 120px 1fr 26px;align-items:center;gap:6px;margin:5px 0;font-size:11.5px}
+.cmprow .av{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.cmprow .bv{text-align:left;font-weight:600;font-variant-numeric:tabular-nums}
+.cmprow .clab{text-align:center;color:var(--sub);line-height:1.15}
+.cmptrack{height:8px;background:#eceae2;border-radius:5px;overflow:hidden;display:flex}
+.cmptrack.a{justify-content:flex-end}
+.cmptrack.b{justify-content:flex-start}
+.cmpfill{height:100%;border-radius:5px;min-width:2px}
+.cmpspec{width:100%;border-collapse:collapse;font-size:12.5px;margin:12px 0 2px}
+.cmpspec th,.cmpspec td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.cmpspec thead th{color:var(--sub);font-weight:600;font-size:12px}
+.cmpspec tbody th{width:112px;color:var(--sub);font-weight:600}
+.cmpnote{font-size:12px;color:#9a7b2e;margin-top:8px}
+@media(max-width:640px){.cmprow{grid-template-columns:22px 1fr 84px 1fr 22px;gap:4px;font-size:11px}.cmpname{font-size:13.5px}.cmpscore{font-size:19px}.cmpspec tbody th{width:auto}}
 @media print{body{background:#fff}.card,.note,.bucket{break-inside:avoid}}
 </style></head><body><div class="wrap">
 <h1>Family cars — safety-first</h1>
@@ -147,6 +179,17 @@ th.hm,td.hm{display:none}.tablewrap table{min-width:0}.tablewrap{overflow-x:visi
 <div style="font-size:12.5px;color:var(--sub);margin-top:2px">Row 1 is shaded green. On a phone the table trims to Model · Variant · Buy · Overall; open a detail card below for the full breakdown.</div>
 <div class="note" style="margin-top:12px" id="penbox"><h3>Carrying the hijacking penalty</h3>
 <span id="pentxt"></span>.<div style="font-size:12.5px;color:var(--sub);margin-top:6px">Strong vehicles on crash safety, reliability and resale — the penalty, not their engineering, is what costs them the points. Only a model <i>named in a published SA most-hijacked list</i> can draw it, and you can set it to zero in the panel above. See the caveats below before you lean on it either way.</div></div>
+
+<h2>Head-to-head</h2>
+<p style="color:var(--sub);font-size:13.5px;margin:-4px 0 8px">Set any two cars against each other — from either market and any budget, whether or not they're in your filtered list above. The overall score and the accent-coloured bars use <b>your</b> current weightings, so they move with the re-score panel at the top. It opens on the <b>Mahindra XUV700</b> vs the <b>Hyundai Alcazar</b>; change either side to compare your own pair, and the link updates so you can share it.</p>
+<div class="note" id="compare">
+<div class="cmpselects">
+<label class="cmppick"><span class="cmplab">Car A</span><select class="cmpsel" id="cmpa" aria-label="Compare — car A"></select></label>
+<label class="cmppick"><span class="cmplab">Car B</span><select class="cmpsel" id="cmpb" aria-label="Compare — car B"></select></label>
+</div>
+<div style="margin:10px 0 4px"><button class="exbtn" type="button" id="cmpswap">Swap sides</button></div>
+<div id="cmpout"></div>
+</div>
 
 <h2>The recommendations <span style="font-weight:400;color:var(--sub);font-size:15px">— <span id="cardcount">·</span> cars in detail, best to worst</span></h2>
 <p style="color:var(--sub);font-size:13.5px;margin:-4px 0 8px"><b>Tap any card to open its detail</b> — safety, the score breakdown and, where sourced, real <b>front, side and rear</b> photos. All cards start collapsed so the list is easy to scan; use <b>Expand all</b> to open every one. Cars I've written up carry a full assessment; the rest are built straight from the sourced data sheet and say so — <b>no car is hidden for lacking a write-up, and none is given one it doesn't have</b>. Photos are representative images of the generation, not the specific cars for sale, so trim, facelift and colour will vary.</p>
@@ -263,6 +306,21 @@ var DEFAULTS = {
   w: D.w.slice(), pen: D.pen, thr: D.thr,
   min: 0, max: D.ceil, market: 'both', qty: 10, excluded: [], exbrand: []
 };
+// Default head-to-head pair: the winning variant of each named model at the default weighting.
+function bestVariantIndex(name){
+  var wn = normW(DEFAULTS.w), bi = null, bt = -Infinity;
+  for (var k = 0; k < D.variants.length; k++){
+    var e = D.variants[k];
+    if (e.n !== name) continue;
+    var t = total(e, DEFAULTS, wn);
+    if (bi === null || t > bt || (t === bt && e.i < bi)){ bt = t; bi = e.i; }
+  }
+  return bi;
+}
+DEFAULTS.ca = bestVariantIndex('Mahindra XUV700');
+DEFAULTS.cb = bestVariantIndex('Hyundai Alcazar');
+if (DEFAULTS.ca === null) DEFAULTS.ca = D.variants[0].i;
+if (DEFAULTS.cb === null) DEFAULTS.cb = (D.variants[1] || D.variants[0]).i;
 var S = JSON.parse(JSON.stringify(DEFAULTS));
 
 function esc(t){
@@ -288,6 +346,10 @@ function hjBand(h){
 // ---------- lookups ----------
 var MODEL = Object.create(null);
 D.models.forEach(function(m){ MODEL[m.n] = m; });
+
+// Variant lookup by global source index — the head-to-head compare pickers key on it.
+var VByI = Object.create(null);
+D.variants.forEach(function(e){ VByI[e.i] = e; });
 
 // Prose keyed by model + variant. NUL as the delimiter: it cannot occur in either string.
 var PROSE = Object.create(null);
@@ -690,6 +752,8 @@ function writeHash(){
   if (S.market !== DEFAULTS.market) p.push('m=' + S.market);
   if (S.min !== DEFAULTS.min || S.max !== DEFAULTS.max) p.push('b=' + S.min + '-' + S.max);
   if (S.qty !== DEFAULTS.qty) p.push('q=' + S.qty);
+  if (S.ca !== DEFAULTS.ca) p.push('ca=' + S.ca);
+  if (S.cb !== DEFAULTS.cb) p.push('cb=' + S.cb);
   if (S.pen !== DEFAULTS.pen) p.push('p=' + S.pen);
   if (S.thr !== DEFAULTS.thr) p.push('t=' + S.thr);
   for (var j = 0; j < NC; j++) if (S.w[j] !== DEFAULTS.w[j]) {
@@ -709,6 +773,8 @@ function readHash(){
     var k = kv.slice(0, i), v = kv.slice(i + 1);
     if (k === 'm' && /^(both|new|used)$/.test(v)) S.market = v;
     else if (k === 'q') { var q = parseInt(v, 10); if (!isNaN(q) && q >= 0) S.qty = q; }
+    else if (k === 'ca') { var ia = parseInt(v, 10); if (!isNaN(ia) && VByI[ia]) S.ca = ia; }
+    else if (k === 'cb') { var ib = parseInt(v, 10); if (!isNaN(ib) && VByI[ib]) S.cb = ib; }
     else if (k === 'p') { var pp = parseFloat(v); if (!isNaN(pp) && pp >= 0 && pp <= 2) S.pen = pp; }
     else if (k === 't') { var tt = parseFloat(v); if (!isNaN(tt) && tt >= 0 && tt <= 10) S.thr = tt; }
     else if (k === 'b') {
@@ -873,17 +939,107 @@ function renderPicks(){
   });
 }
 
+// ---------- head-to-head compare ----------
+function shortName(e){ var m = MODEL[e.n]; return (m && m.sh) ? m.sh : e.n; }
+
+function cmpPhoto(e){
+  var m = MODEL[e.n], pics = (m && m.ph) || [];
+  if (!pics.length)
+    return '<div class="cmpphoto none">No representative photo on file for the ' + esc(e.n) + '</div>';
+  var p = pics[0];
+  return '<div class="cmpphoto"><img loading="lazy" alt="' + esc(e.n) + ' ' + esc(p[0]) +
+         '" src="' + esc(p[1]) + '"></div>';
+}
+
+var CMPSPEC = [['seats','Seats'],['engine','Engine'],['fuel','Fuel (L/100km)'],
+               ['airbags','Airbags'],['boot','Boot (all up)'],['warranty','Warranty'],
+               ['service','Service plan'],['crash','Crash rating']];
+
+function cmpCol(e, t, win){
+  var pr = proseFor(e), disp = pr && pr.disp ? pr.disp : e.v;
+  var cls = win < 0 ? ' lose' : '';
+  var lead = win > 0 ? '<span class="cmplead">leads</span>' : '';
+  return '<div class="cmpcol">' + cmpPhoto(e) +
+    '<div class="cmpname">' + esc(e.n) + '</div>' +
+    '<div class="cmpmeta"><span class="mkt ' + e.m + '">' + e.m.toUpperCase() + '</span> ' + esc(disp) + '</div>' +
+    '<div class="cmpmeta">' + (e.m === 'used' ? 'Used ' : 'New ') + money(e.p) + ' · ' + esc(e.raw.crash) + '</div>' +
+    '<div class="cmpscore' + cls + '">' + t.toFixed(2) + '<span class="cmpsclab">overall</span>' + lead + '</div>' +
+    '</div>';
+}
+
+function buildCompare(){
+  var selA = document.getElementById('cmpa'), selB = document.getElementById('cmpb');
+  if (!selA || !selB) return;
+  var vs = D.variants.slice().sort(function(a, b){
+    return a.n < b.n ? -1 : a.n > b.n ? 1 : (a.p - b.p);
+  });
+  var groups = {'new': [], 'used': []};
+  vs.forEach(function(e){
+    groups[e.m].push('<option value="' + e.i + '">' +
+      esc(e.n + ' — ' + e.v + '  (' + money(e.p) + ')') + '</option>');
+  });
+  var html = '<optgroup label="New">' + groups['new'].join('') + '</optgroup>' +
+             '<optgroup label="Used">' + groups['used'].join('') + '</optgroup>';
+  selA.innerHTML = html; selB.innerHTML = html;
+  selA.value = S.ca; selB.value = S.cb;
+  selA.addEventListener('change', function(){ S.ca = parseInt(this.value, 10); renderCompare(); writeHash(); });
+  selB.addEventListener('change', function(){ S.cb = parseInt(this.value, 10); renderCompare(); writeHash(); });
+  var sw = document.getElementById('cmpswap');
+  if (sw) sw.addEventListener('click', function(){ var t = S.ca; S.ca = S.cb; S.cb = t; renderCompare(); writeHash(); });
+}
+
+// Rebuilt on every render so the overall score and the accent-coloured "which is higher" bars
+// track the reader's current weightings, exactly like the ranking and the cards do. The pickers
+// are NOT filtered by budget/market/exclusions: a head-to-head is a deliberate choice, so any two
+// of the scored variants can be set against each other.
+function renderCompare(){
+  var host = document.getElementById('cmpout');
+  if (!host) return;
+  var selA = document.getElementById('cmpa'), selB = document.getElementById('cmpb');
+  if (selA) selA.value = S.ca;
+  if (selB) selB.value = S.cb;
+  var a = VByI[S.ca], b = VByI[S.cb];
+  if (!a || !b){ host.innerHTML = ''; return; }
+  var wn = normW(S.w), ta = total(a, S, wn), tb = total(b, S, wn);
+  var wa = ta > tb ? 1 : (ta < tb ? -1 : 0);
+  var ACC = '#1f4e78', MUT = '#c3d2e4', bars = '';
+  for (var j = 0; j < NC; j++){
+    var va = a.s[j], vb = b.s[j];
+    bars += '<div class="cmprow">' +
+      '<span class="av">' + va.toFixed(1) + '</span>' +
+      '<span class="cmptrack a"><span class="cmpfill" style="width:' + Math.round(va * 10) + '%;background:' + (va > vb ? ACC : MUT) + '"></span></span>' +
+      '<span class="clab">' + esc(D.crit[j]) + '</span>' +
+      '<span class="cmptrack b"><span class="cmpfill" style="width:' + Math.round(vb * 10) + '%;background:' + (vb > va ? ACC : MUT) + '"></span></span>' +
+      '<span class="bv">' + vb.toFixed(1) + '</span></div>';
+  }
+  var specrows = CMPSPEC.map(function(f){
+    var pick = function(e){ var x = e.raw[f[0]]; x = (x == null ? '' : String(x)).trim(); return (x && x !== '-') ? esc(x) : '—'; };
+    return '<tr><th>' + esc(f[1]) + '</th><td>' + pick(a) + '</td><td>' + pick(b) + '</td></tr>';
+  }).join('');
+  var same = (S.ca === S.cb)
+    ? '<div class="cmpnote">That’s the same car on both sides — pick two different ones to see the contrast.</div>'
+    : '';
+  host.innerHTML =
+    '<div class="cmpgrid">' + cmpCol(a, ta, wa) + cmpCol(b, tb, -wa) + '</div>' + same +
+    '<div class="cmphdr"><span>Score by criterion</span><span class="cmphint">taller bar / accent colour = higher</span></div>' +
+    '<div class="cmpbars">' + bars + '</div>' +
+    '<table class="cmpspec"><thead><tr><th></th><th>' + esc(shortName(a)) + '</th><th>' + esc(shortName(b)) + '</th></tr></thead><tbody>' +
+    specrows + '</tbody></table>';
+}
+
 function render(){
   renderTables();
   renderCards();
   renderPenalty();
   renderSizes();
   renderPicks();
+  renderCompare();
   wireCardCtl();
 }
 
 readHash();
 buildControls();
+buildCompare();
 syncControls();
 render();
 window.addEventListener('hashchange', function(){
